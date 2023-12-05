@@ -15,7 +15,7 @@ class TasksMicroServices
         $this->doctrine = $entityManager;
         $this->authenticationUtils = $authenticationUtils;
     }
-    public function getAll()
+    public function getTasksByUserConnected()
     {
         return $this->doctrine->getRepository(User::class)->findOneBy([
             'email' => $this->authenticationUtils->getLastUsername()
