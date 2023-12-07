@@ -2,6 +2,7 @@
 
 namespace App\MicroServices;
 
+use App\Entity\Tasks;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -20,5 +21,10 @@ class TasksMicroServices
         return $this->doctrine->getRepository(User::class)->findOneBy([
             'email' => $this->authenticationUtils->getLastUsername()
         ])->getTasks();
+    }
+
+    public function getSingle(int $id)
+    {
+        return $this->doctrine->getRepository(Tasks::class)->find($id);
     }
 }

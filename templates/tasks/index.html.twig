@@ -3,7 +3,21 @@
 {% block title %}Hello TasksController!{% endblock %}
 
 {% block content %}
-    {% for task in tasks %}
-        {{ task.titre }}<br>
-    {% endfor %}
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center text-decoration-underline">Tasks: </h1>
+        </div>
+        <div class="col-12">
+            <a href="{{ path('tasks.createOrUpdate', {id: -1}) }}" class="btn btn-primary">Create</a>
+        </div>
+        <div class="col-12">
+            <div class="row">
+                {% for task in tasks %}
+                    <div class="col-2 offset-1">
+                        {{ include('components/tasks/cards.html.twig', {"task": task}) }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -1,0 +1,8 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ task.titre }}</h5>
+        <a href="{{ path('tasks.show', {id: task.id}) }}" class="btn btn-success">Show</a>
+        <a href="{{ path('tasks.createOrUpdate', {id: task.id}) }}" class="btn btn-secondary">Update</a>
+        <a href="{{ path('tasks.delete', {id: task.id}) }}" class="btn btn-danger">Delete</a>
+    </div>
+</div>
